@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,8 +48,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,11 +69,89 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseModels\User.cs">
+      <DependentUpon>UsersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Identity\IdentityValidator.cs" />
+    <Compile Include="DatabaseModels\ProductModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DatabaseModels\UsersModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsersModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\UsersModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\UsersModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsersModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceInterface\IAddUser.cs" />
+    <Compile Include="ServiceProviders\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="DatabaseModels\ProductModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ProductModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DatabaseModels\ProductModel.edmx.diagram">
+      <DependentUpon>ProductModel.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="DatabaseModels\UsersModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UsersModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DatabaseModels\UsersModel.edmx.diagram">
+      <DependentUpon>UsersModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DatabaseModels\UsersModel.edmx.sql" />
+    <Content Include="Database\UserDatabase.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\UserDatabase_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>UserDatabase.mdf</DependentUpon>
+    </Content>
+    <Content Include="DatabaseModels\UsersModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UsersModel.Context.cs</LastGenOutput>
+      <DependentUpon>UsersModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="UsersModel.edmx.sql" />
+    <Content Include="DatabaseModels\UsersModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UsersModel.cs</LastGenOutput>
+      <DependentUpon>UsersModel.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
