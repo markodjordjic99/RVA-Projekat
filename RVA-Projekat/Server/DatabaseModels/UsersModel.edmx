@@ -10,14 +10,13 @@
   </EntityContainer>
   <EntityType Name="Users">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="Username" />
     </Key>
     <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Firstname" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Role" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Id" Type="int" Nullable="false" />
   </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -28,14 +27,13 @@
         </EntityContainer>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="Username" />
           </Key>
           <Property Name="Username" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="Password" Type="String" Nullable="false" />
           <Property Name="Firstname" Type="String" Nullable="false" />
           <Property Name="Surname" Type="String" Nullable="false" />
           <Property Name="Role" Type="String" Nullable="false" />
-          <Property Name="Id" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -46,7 +44,6 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="IsTypeOf(UsersModel.User)">
         <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Firstname" ColumnName="Firstname" />

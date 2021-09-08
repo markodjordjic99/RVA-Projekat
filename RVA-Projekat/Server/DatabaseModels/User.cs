@@ -19,6 +19,5 @@ namespace Server.DatabaseModels
         public string Firstname { get; set; }
         public string Surname { get; set; }
         public string Role { get; set; }
-        public int Id { get; set; }
     }
 }
