@@ -10,11 +10,12 @@ namespace Server.ServiceProviders
 {
     class UserService : IAddUser
     {
-        public void AddUser(User user)
+        public void AddUser(string username, string password)
         {
             using (var dbContext = new UsersModelContainer())
             {
-                dbContext.Users.Add(user);
+                Console.WriteLine("Operations successfully completed:)");
+                dbContext.Users.Add(new User(){Username = username, Password = password});
             }
         }
     }

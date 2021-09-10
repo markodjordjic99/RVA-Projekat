@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{3145DBB8-4410-4B22-BF0E-6755C2840A58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServerTester", "WCFServerTester\WCFServerTester.csproj", "{76630B6A-A47F-40D6-9DB7-33FA4E22BD78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3145DBB8-4410-4B22-BF0E-6755C2840A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3145DBB8-4410-4B22-BF0E-6755C2840A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3145DBB8-4410-4B22-BF0E-6755C2840A58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76630B6A-A47F-40D6-9DB7-33FA4E22BD78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76630B6A-A47F-40D6-9DB7-33FA4E22BD78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76630B6A-A47F-40D6-9DB7-33FA4E22BD78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76630B6A-A47F-40D6-9DB7-33FA4E22BD78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

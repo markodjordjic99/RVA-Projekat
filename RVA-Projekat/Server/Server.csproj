@@ -95,7 +95,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UsersModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ServiceInterface\IAddUser.cs" />
     <Compile Include="ServiceProviders\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +151,11 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{7a0bbdd6-7c52-4908-a550-951cd7898351}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

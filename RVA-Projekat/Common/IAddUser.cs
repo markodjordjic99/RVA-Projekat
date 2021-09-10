@@ -4,14 +4,13 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using Server.DatabaseModels;
 
 namespace Server.ServiceInterface
 {
     [ServiceContract]
-    interface IAddUser
+    public interface IAddUser
     {
         [OperationContract]
-        void AddUser(User user);
+        void AddUser(String username, string password);
     }
 }
